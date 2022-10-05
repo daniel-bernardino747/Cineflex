@@ -1,18 +1,30 @@
-import styled from 'styled-components';
+
 import { Link } from 'react-router-dom';
 
-export default function Session() {
-  return (
-    <Consta>
-      <Link to={`/assentos/1`}>
-        <div>a</div>
-      </Link>
-    </Consta>
-  );
-};
+import { Container, TitlePage } from "../GlobalStyle";
 
-export const Consta = styled.div`
-  width: 100%;
-  height: 100%;
-  background-color: white;
-`;
+export default function Session() {
+    return (
+        <Container>
+            <TitlePage>Selecione o horário</TitlePage>
+
+            <div>
+                <h2>Quinta-feira - 24/06/2022</h2>
+
+                <div>
+                    <Link to={`/assentos/1`}>
+                        15h00
+                    </Link>
+
+                    <Link to={`/assentos/2`}>
+                        19h00
+                    </Link>
+                </div>
+            </div>
+
+            <footer>
+
+            </footer>
+        </Container>
+    );
+};

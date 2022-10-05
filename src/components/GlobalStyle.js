@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 
 export const ResetCSS = createGlobalStyle`
     /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -72,4 +73,41 @@ export const ResetCSS = createGlobalStyle`
         display: flex;
         flex-direction: column;
     }
+`;
+export const Header = styled.header`
+    min-width: 375px;
+    height: 67px;
+    background: var(--default-color);
+    color: #E8833A;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    font-size: 36px;
+    user-select: none;
+`;
+export const Container = styled.main`
+    max-width: 768px;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    @media (max-width: 610px) {
+        max-width: 375px;
+    }
+`;
+export const TitlePage = styled.h1`
+    margin-top: 110px;
+    color: var(--dark);
+    font-size: 24px;
+    text-align: center;
+    user-select: none;
 `;

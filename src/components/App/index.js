@@ -1,13 +1,14 @@
-import { ResetCSS } from "../GlobalStyle";
-import Home from "../Home";
-import { Header } from "./style";
+import React from "react";
+import { Outlet } from "react-router-dom";
+import { ResetCSS, Header } from "../GlobalStyle";
 
 export default function App() {
     return (
         <>
-            <Header>CINEFLEX</Header>
-            <Home />
             <ResetCSS />
+
+            <Header>CINEFLEX</Header>
+            <Outlet />
         </>
     );
 };
