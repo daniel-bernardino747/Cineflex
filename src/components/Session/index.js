@@ -1,30 +1,54 @@
 
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import axios from 'axios';
 
 import { Container, TitlePage } from "../GlobalStyle";
+import { SessionToSelect, Wrapper } from './style';
 
 export default function Session() {
+    let { idFilme } = useParams();
+    const [movieInfos, setMovieInfos] = useState();
+
+    useEffect(() => {
+
+        const url = `https://mock-api.driven.com.br/api/v5/cineflex/movies/${idFilme}/showtimes`;
+        const promise = axios.get(url);
+
+        promise.then(answer => setMovieInfos(answer.data));
+        promise.catch(error => alert(error));
+
+    }, []);
+
     return (
         <Container>
             <TitlePage>Selecione o horário</TitlePage>
 
-            <div>
-                <h2>Quinta-feira - 24/06/2022</h2>
+            {movieInfos !== undefined
+                ? <SessionOptions sessionDays={movieInfos.days} />
+                : <div>Carregando...</div>
+            }
 
-                <div>
-                    <Link to={`/assentos/1`}>
-                        15h00
-                    </Link>
+        </Container >
+    );
+};
 
-                    <Link to={`/assentos/2`}>
-                        19h00
-                    </Link>
-                </div>
-            </div>
+function SessionOptions({ sessionDays }) {
+    let navigate = useNavigate();
 
-            <footer>
+    return (
+        <Wrapper>
+            {sessionDays.map((m) =>
+                <SessionToSelect key={m.id}>
+                    <h1>{m.weekday} - {m.date}</h1>
 
-            </footer>
-        </Container>
+                    <div>
+                        {m.showtimes.map(t =>
+                            <button onClick={() => navigate(`/assentos/${m.id}`)} key={t.id}>{t.name}</button>
+                        )}
+                    </div>
+                </SessionToSelect>
+            )}
+        </Wrapper>
     );
 };

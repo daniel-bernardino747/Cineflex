@@ -1,14 +1,13 @@
 import { Movie } from "./style";
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-export default function Film({ movie, setMovieSelected, movieSelected }) {
+export default function Film(props) {
+    const { id, posterURL, title } = props.movie;
+    let navigate = useNavigate();
+
     return (
-        <>
-            <Link to={`sessoes/1`}>
-                <Movie onClick={() => setMovieSelected(!movieSelected)}>
-                    <img src={movie.imagem} />
-                </Movie>
-            </Link>
-        </>
+        <Movie onClick={() => navigate(`/sessoes/${id}`)}>
+            <img src={posterURL} alt={title} />
+        </Movie>
     );
-}
+};

@@ -1,21 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 import { Container, TitlePage, Catalog } from "./style";
-
 import Film from "../Film";
 
 export default function Home() {
-    const [filmsList, setFilmsList] = useState(
-        [
-            { nome: 1, imagem: 'https://lumiere-a.akamaihd.net/v1/images/56015l10_bigsal_brazil_intpayoff_4x5_d4019af6.jpeg' },
-            { nome: 2, imagem: 'https://lumiere-a.akamaihd.net/v1/images/56015l10_bigsal_brazil_intpayoff_4x5_d4019af6.jpeg' },
-            { nome: 2, imagem: 'https://lumiere-a.akamaihd.net/v1/images/56015l10_bigsal_brazil_intpayoff_4x5_d4019af6.jpeg' },
-            { nome: 2, imagem: 'https://lumiere-a.akamaihd.net/v1/images/56015l10_bigsal_brazil_intpayoff_4x5_d4019af6.jpeg' },
-            { nome: 2, imagem: 'https://lumiere-a.akamaihd.net/v1/images/56015l10_bigsal_brazil_intpayoff_4x5_d4019af6.jpeg' },
-            { nome: 2, imagem: 'https://lumiere-a.akamaihd.net/v1/images/56015l10_bigsal_brazil_intpayoff_4x5_d4019af6.jpeg' },
-            { nome: 2, imagem: 'https://lumiere-a.akamaihd.net/v1/images/56015l10_bigsal_brazil_intpayoff_4x5_d4019af6.jpeg' },
-            { nome: 2, imagem: 'https://lumiere-a.akamaihd.net/v1/images/56015l10_bigsal_brazil_intpayoff_4x5_d4019af6.jpeg' }
-        ]);
+    const [filmsList, setFilmsList] = useState([]);
+
+    useEffect(() => {
+
+        const url = "https://mock-api.driven.com.br/api/v5/cineflex/movies";
+        const promise = axios.get(url);
+
+        promise.then(answer => setFilmsList(answer.data));
+        promise.catch(error => alert(error));
+
+    }, []);
 
     return (
         <Container>
@@ -23,7 +23,7 @@ export default function Home() {
             <TitlePage>Selecione o filme</TitlePage>
 
             <Catalog>
-                {filmsList.map(i => <Film movie={i} />)}
+                {filmsList.map(i => <Film key={i.id} movie={i} />)}
             </Catalog>
 
         </Container>
