@@ -12,7 +12,6 @@ export const Movie = styled.li`
     display: flex;
     align-self: center;
     justify-content: center;
-
     img {
         width: 100%;
     }
