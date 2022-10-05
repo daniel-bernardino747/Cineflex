@@ -5,7 +5,7 @@ export const Movie = styled.li`
     height: 209px;
     color: black;
     border-radius: 5px;
-    padding: 10px 10px;
+    padding: 10px;
     cursor: pointer;
     box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
     border-radius: 3px;

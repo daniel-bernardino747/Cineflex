@@ -3,12 +3,13 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
-import { Container, TitlePage } from "../GlobalStyle";
-import { SessionToSelect, Wrapper } from './style';
+import { Container, TitlePage, Footer } from "../GlobalStyle";
+import { SessionToSelect, Wrapper, Loading } from './style';
 
 export default function Session() {
     let { idFilme } = useParams();
     const [movieInfos, setMovieInfos] = useState();
+    console.log("movieInfos", movieInfos)
 
     useEffect(() => {
 
@@ -24,10 +25,19 @@ export default function Session() {
         <Container>
             <TitlePage>Selecione o horário</TitlePage>
 
-            {movieInfos !== undefined
+            {movieInfos
                 ? <SessionOptions sessionDays={movieInfos.days} />
-                : <div>Carregando...</div>
+                : <Loading>Carregando...</Loading>
             }
+
+            <Footer>
+                <div>
+                    <img src={movieInfos.posterURL} />
+                </div>
+                <section>
+                    <p>{movieInfos.title}</p>
+                </section>
+            </Footer>
 
         </Container >
     );

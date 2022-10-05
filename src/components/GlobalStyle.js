@@ -56,7 +56,7 @@ export const ResetCSS = createGlobalStyle`
         --available-color: #8DD7CF;
         --unavailable-color: #FBE192;
         --clickable-color: #E8833A;
-        --footer-color: #9EADBA;
+        --footer-color: #DFE6ED;
         --dark: #293845;
     }
     body {
@@ -110,4 +110,42 @@ export const TitlePage = styled.h1`
     font-size: 24px;
     text-align: center;
     user-select: none;
+`;
+export const Footer = styled.footer`
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 117px;
+    width: max(100%, 375px);
+    background: var(--footer-color);
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    border-top: 1px solid #9EADBA;
+
+    div {
+        width: 64px;
+        height: 89px;
+        background-color: #FFF;
+        padding: 5px;
+        border-radius: 3px;
+        display: flex;
+        align-self: center;
+        justify-content: center;
+        margin: 0 10px;
+    }
+
+    section {
+        display: flex;
+        align-self: center;
+
+        p {
+            font-size: 26px;
+            color: var(--dark)
+        }
+    }
+
+    img {
+        width: 100%;
+    }
 `;

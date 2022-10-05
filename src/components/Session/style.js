@@ -33,3 +33,10 @@ export const SessionToSelect = styled.li`
         width: 250px;
     }
 `;
+export const Loading = styled.div`
+    width: 375px;
+    text-align: center;
+    margin-top: 43px;
+    font-size: 20px;
+    color: var(--default-color);
+`;
