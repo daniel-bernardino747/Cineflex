@@ -7,13 +7,12 @@ import { Container, TitlePage, Footer } from "../GlobalStyle";
 import { SessionToSelect, Wrapper, Loading } from './style';
 
 export default function Session() {
-    let { idFilme } = useParams();
     const [movieInfos, setMovieInfos] = useState();
-    console.log("movieInfos", movieInfos)
+    let { idFilme } = useParams();
 
     useEffect(() => {
 
-        const url = `https://mock-api.driven.com.br/api/v5/cineflex/movies/${idFilme}/showtimes`;
+        const url = `https://mock-api.driven.com.br/api/v8/cineflex/movies/${idFilme}/showtimes`;
         const promise = axios.get(url);
 
         promise.then(answer => setMovieInfos(answer.data));
@@ -30,15 +29,16 @@ export default function Session() {
                 : <Loading>Carregando...</Loading>
             }
 
-            <Footer>
-                <div>
-                    <img src={movieInfos.posterURL} />
-                </div>
-                <section>
-                    <p>{movieInfos.title}</p>
-                </section>
-            </Footer>
-
+            {movieInfos && (
+                <Footer>
+                    <div>
+                        <img src={movieInfos.posterURL} />
+                    </div>
+                    <section>
+                        <p>{movieInfos.title}</p>
+                    </section>
+                </Footer>
+            )}
         </Container >
     );
 };
@@ -54,7 +54,7 @@ function SessionOptions({ sessionDays }) {
 
                     <div>
                         {m.showtimes.map(t =>
-                            <button onClick={() => navigate(`/assentos/${m.id}`)} key={t.id}>{t.name}</button>
+                            <button onClick={() => navigate(`/assentos/${t.id}`)} key={t.id}>{t.name}</button>
                         )}
                     </div>
                 </SessionToSelect>

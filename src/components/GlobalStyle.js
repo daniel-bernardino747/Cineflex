@@ -53,7 +53,7 @@ export const ResetCSS = createGlobalStyle`
     * {
         box-sizing: border-box;
         --default-color: #C3CFD9;
-        --available-color: #8DD7CF;
+        --selected-color: #8DD7CF;
         --unavailable-color: #FBE192;
         --clickable-color: #E8833A;
         --footer-color: #DFE6ED;
@@ -120,7 +120,6 @@ export const Footer = styled.footer`
     background: var(--footer-color);
     display: flex;
     align-self: center;
-    justify-content: center;
     border-top: 1px solid #9EADBA;
 
     div {
@@ -132,12 +131,13 @@ export const Footer = styled.footer`
         display: flex;
         align-self: center;
         justify-content: center;
-        margin: 0 10px;
+        margin: 0 15px 0 7vw;
     }
 
     section {
         display: flex;
-        align-self: center;
+        flex-direction: column;
+        justify-content: center;
 
         p {
             font-size: 26px;
