@@ -1,20 +1,18 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import { Container, TitlePage, Footer } from "../GlobalStyle";
 import { Forms, Submit, InputText, Loading, SessionSeats, Position } from './style';
 
-export default function Seat() {
+export default function Seat({ setUserPurchase }) {
     const [sessionInfos, setSessionInfos] = useState([]);
-    const [positionSeat, setPositionSeat] = useState([])
+    const [positionSeat, setPositionSeat] = useState([]);
+    const [name, setName] = useState("");
+    const [CPF, setCPF] = useState("");
+
     let { idSessao } = useParams();
-
-    const selecteds = positionSeat.filter(e => e.selected === true);
-
-    console.log("sessionInfos", sessionInfos);
-    console.log("positionSeat", positionSeat);
-    console.log("selecteds", selecteds);
+    let navigate = useNavigate();
 
     useEffect(() => {
 
@@ -42,6 +40,35 @@ export default function Seat() {
 
     }
 
+    function submitValues(e) {
+        e.preventDefault();
+
+        const selecteds = positionSeat.filter(e => e.selected === true);
+        const idSelecteds = selecteds.map(e => e.id);
+
+        if (selecteds.length === 0) {
+            return;
+        }
+        const body = {
+            ids: idSelecteds,
+            name: name,
+            cpf: CPF
+        }
+        console.log(body);
+
+        setUserPurchase({ idSession: idSessao, idsSeats: idSelecteds, user: { name: name, cpf: CPF } })
+
+        const url = "https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many";
+        const promise = axios.post(url, body);
+
+        promise.then(() => navigate('/sucesso'));
+
+        promise.catch(error => {
+            alert(error);
+            console.log(error);
+        });
+
+    }
     return (
         <Container>
             <TitlePage>Selecione o(s) assento(s)</TitlePage>
@@ -55,12 +82,28 @@ export default function Seat() {
                 : <Loading>Carregando...</Loading>}
 
 
-            <Forms>
+            <Forms onSubmit={submitValues}>
                 <div>
                     <label htmlFor="bla">Nome do Comprador:</label>
-                    <InputText type="text" id="bla" placeholder='Digite seu nome...' />
+                    <InputText
+                        type="text"
+                        id="bla"
+                        name={name}
+                        placeholder='Digite seu nome...'
+                        onChange={(e) => setName(e.target.value)}
+                        required />
+
                     <label htmlFor="ble">CPF do Comprador:</label>
-                    <InputText type="text" id="ble" placeholder='Digite seu CPF...' />
+                    <InputText
+                        type="text"
+                        id="ble"
+                        name={CPF}
+                        placeholder='Digite seu CPF...'
+                        onChange={(e) => setCPF(e.target.value)}
+                        pattern="[0-9]+$"
+                        maxLength="11"
+                        minLength="11"
+                        required />
                 </div>
                 <Submit value="Reservar assento(s)" />
             </Forms>

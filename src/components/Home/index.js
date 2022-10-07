@@ -8,7 +8,6 @@ export default function Home() {
     const [filmsList, setFilmsList] = useState([]);
 
     useEffect(() => {
-
         const url = "https://mock-api.driven.com.br/api/v8/cineflex/movies";
         const promise = axios.get(url);
 

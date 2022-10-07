@@ -106,7 +106,8 @@ export const Container = styled.main`
 `;
 export const TitlePage = styled.h1`
     margin-top: 110px;
-    color: var(--dark);
+    color: ${props => props.sucess ? "#247A6B" : "var(--dark)"};
+    font-weight: ${props => props.sucess ? "700" : "400"};
     font-size: 24px;
     text-align: center;
     user-select: none;
