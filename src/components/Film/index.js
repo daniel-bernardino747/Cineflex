@@ -7,7 +7,9 @@ export default function Film(props) {
 
     return (
         <Movie onClick={() => navigate(`/sessoes/${id}`)}>
-            <div><img src={posterURL} alt={title} /></div>
+            <div>
+                <img src={posterURL} alt={title} />
+            </div>
         </Movie>
     );
 };

@@ -52,22 +52,22 @@ export const ResetCSS = createGlobalStyle`
     }
     * {
         box-sizing: border-box;
+        --clickable-color: #E8833A;
+        --dark: #293845;
         --default-color: #C3CFD9;
+        --footer-color: #DFE6ED;
         --selected-color: #8DD7CF;
         --unavailable-color: #FBE192;
-        --clickable-color: #E8833A;
-        --footer-color: #DFE6ED;
-        --dark: #293845;
     }
     body {
-        width: 100vw;
-        height: 100vh;
         display: flex;
         justify-content: center;
+        width: 100vw;
+        height: 100vh;
         color: var(--preto);
-        background-color: #FFF;
-        font-family: 'Roboto', sans-serif;
         font-weight: 400;
+        font-family: 'Roboto', sans-serif;
+        background-color: #FFF;
     }
     .root {
         display: flex;
@@ -75,22 +75,20 @@ export const ResetCSS = createGlobalStyle`
     }
 `;
 export const Header = styled.header`
-    min-width: 375px;
-    height: 67px;
-    background: var(--default-color);
-    color: #E8833A;
-
+    display: flex;
     position: fixed;
     top: 0;
-    left: 0;
     right: 0;
-
-    display: flex;
+    left: 0;
     justify-content: center;
     align-items: center;
+    min-width: 375px;
+    height: 67px;
     padding: 10px 0;
+    color: #E8833A;
     font-size: 36px;
     user-select: none;
+    background: var(--default-color);
 `;
 export const Container = styled.main`
     max-width: 768px;
@@ -113,26 +111,30 @@ export const TitlePage = styled.h1`
     user-select: none;
 `;
 export const Footer = styled.footer`
+    display: flex;
     position: fixed;
     bottom: 0;
     left: 0;
-    height: 117px;
-    width: max(100%, 375px);
-    background: var(--footer-color);
-    display: flex;
     align-self: center;
+    width: max(100%, 375px);
+    height: 117px;
     border-top: 1px solid #9EADBA;
+    background: var(--footer-color);
 
     div {
+        display: flex;
+        justify-content: center;
+        align-self: center;
         width: 64px;
         height: 89px;
-        background-color: #FFF;
+        margin: 0 15px 0 7vw;
         padding: 5px;
         border-radius: 3px;
-        display: flex;
-        align-self: center;
-        justify-content: center;
-        margin: 0 15px 0 7vw;
+        background-color: #FFF;
+    }
+
+    img {
+        width: 100%;
     }
 
     section {
@@ -141,12 +143,15 @@ export const Footer = styled.footer`
         justify-content: center;
 
         p {
+            color: var(--dark);
             font-size: 26px;
-            color: var(--dark)
         }
     }
-
-    img {
-        width: 100%;
-    }
+`;
+export const Loading = styled.div`
+    width: 375px;
+    margin-top: 43px;
+    color: var(--default-color);
+    font-size: 20px;
+    text-align: center;
 `;

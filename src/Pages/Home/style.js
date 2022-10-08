@@ -22,11 +22,11 @@ export const TitlePage = styled.h1`
 `;
 
 export const Catalog = styled.ul`
-    gap: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 43px 30px;
+    gap: 10px;
 
     @media (max-width: 360px) {
         justify-content: center;

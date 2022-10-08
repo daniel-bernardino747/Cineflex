@@ -5,38 +5,31 @@ export const Wrapper = styled.ul`
 `;
 
 export const SessionToSelect = styled.li`
-    width: 375px;
-    height: 85px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 375px;
+    height: 85px;
     margin-bottom: 35px;
 
     h1 {
-        font-size: 20px;
-        color: var(--dark);
         margin: 0 5px;
+        color: var(--dark);
+        font-size: 20px;
     }
 
     button {
         width: 83px;
         height: 43px;
-        background: var(--clickable-color);
-        border-radius: 3px;
+        margin: 0 5px;
         border: none;
+        border-radius: 3px;
         color: #fff;
         font-size: 18px;
-        margin: 0 5px;
+        background: var(--clickable-color);
     }
 
     @media (max-width: 375px) {
         width: 250px;
     }
-`;
-export const Loading = styled.div`
-    width: 375px;
-    text-align: center;
-    margin-top: 43px;
-    font-size: 20px;
-    color: var(--default-color);
 `;

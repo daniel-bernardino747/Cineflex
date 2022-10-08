@@ -1,26 +1,41 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Header, ResetCSS } from "../../GlobalStyle";
 import React, { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ResetCSS, Header } from "../GlobalStyle";
-import Home from "../Home";
-import Session from "../Session";
-import Seat from "../Seat";
 
-import Sucess from "../Sucess";
+import ErrorPage from "../../Pages/ErrorPage";
+import Home from "../../Pages/Home";
+import Seat from "../../Pages/Seat";
+import Session from "../../Pages/Session";
+import Sucess from "../../Pages/Sucess";
 
 export default function App() {
-    const [userPurchase, setUserPurchase] = useState({});
+    const [userChoice, setUserChoice] = useState({});
 
     return (
         <>
             <ResetCSS />
-
             <Header>CINEFLEX</Header>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="sessoes/:idFilme" element={<Session />} />
-                    <Route path="assentos/:idSessao" element={<Seat setUserPurchase={setUserPurchase} />} />
-                    <Route path="sucesso" element={<Sucess infos={userPurchase} />} />
+                    <Route
+                        path="/"
+                        element={<Home />}
+                        errorElement={<ErrorPage />} />
+
+                    <Route
+                        path="sessoes/:idFilme"
+                        element={<Session />}
+                        errorElement={<ErrorPage />} />
+
+                    <Route
+                        path="assentos/:idSessao"
+                        element={<Seat setUserChoice={setUserChoice} />}
+                        errorElement={<ErrorPage />} />
+
+                    <Route
+                        path="sucesso"
+                        element={<Sucess userChoice={userChoice} />}
+                        errorElement={<ErrorPage />} />
                 </Routes>
             </BrowserRouter>
         </>

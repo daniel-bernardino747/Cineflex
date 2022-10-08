@@ -1,38 +1,38 @@
 import styled from 'styled-components';
 
 export const InfosPurchase = styled.section`
-    margin-top: 43px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 43px;
 
     div {
-        margin-bottom: 15px;
         width: 375px;
+        margin-bottom: 15px;
     }
 
     h1 {
-        font-size: 24px;
-        font-weight: 700;
-        color: var(--dark);
         padding: 10px 0;
+        color: var(--dark);
+        font-weight: 700;
+        font-size: 24px;
     }
 
     p {
-        font-size: 22px;
-        font-weight: 400;
-        color: var(--dark);
         padding: 2px 0;
+        color: var(--dark);
+        font-weight: 400;
+        font-size: 22px;
     }
 
     button {
-        background: var(--clickable-color);
         width: 225px;
         height: 42px;
-        border-radius: 3px;
-        border: none;
         margin: 70px 0;
-        font-size: 18px;
+        border: none;
+        border-radius: 3px;
         color: #FFF;
+        font-size: 18px;
+        background: var(--clickable-color);
     }
 `;
