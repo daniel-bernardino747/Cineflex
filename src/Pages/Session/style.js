@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.ul`
     padding: 43px 0;
+    margin-bottom: 50px;
 `;
 
 export const SessionToSelect = styled.li`

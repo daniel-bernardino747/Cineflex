@@ -25,10 +25,10 @@ export default function Session() {
                     <SessionOptions sessionDays={movieInfos.days} />
 
                     <Footer>
-                        <div>
+                        <div data-identifier="movie-img-preview">
                             <img src={movieInfos.posterURL} alt={movieInfos.title} />
                         </div>
-                        <section>
+                        <section data-identifier="movie-and-session-infos-preview">
                             <p>{movieInfos.title}</p>
                         </section>
                     </Footer>
@@ -42,7 +42,7 @@ function SessionOptions({ sessionDays }) {
     let navigate = useNavigate();
 
     return (
-        <Wrapper>
+        <Wrapper data-identifier="session-date">
             {sessionDays.map((m) =>
                 <SessionToSelect key={m.id}>
                     <h1>{m.weekday} - {m.date}</h1>
@@ -50,6 +50,7 @@ function SessionOptions({ sessionDays }) {
                     <div>
                         {m.showtimes.map(t =>
                             <button
+                                data-identifier="hour-minute-btn"
                                 key={t.id}
                                 onClick={() => navigate(`/assentos/${t.id}`)}>
                                 {t.name}

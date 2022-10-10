@@ -1,7 +1,7 @@
 import { Container, Loading, TitlePage } from "../../GlobalStyle";
+import { InfosPurchase, NameUser } from "./style";
 import { useEffect, useState } from "react";
 
-import { InfosPurchase } from "./style";
 import { pullSessionSeats } from "../../services/get";
 import { useNavigate } from "react-router-dom";
 
@@ -17,7 +17,8 @@ export default function Sucess({ userChoice }) {
 
     useEffect(() => {
         pullSessionSeats(idSession)
-            .then(answer => setInfosMovie(answer.data));
+            .then(answer => setInfosMovie(answer.data))
+            .catch(() => alert("Nós tivemos um problema. Provalmente você tentou acessar uma página que requer informações para ser construída, por favor, volte e tente novamente. "));
     }, [idSession]);
 
     function formatCPF(cpf) {
@@ -31,24 +32,24 @@ export default function Sucess({ userChoice }) {
 
             {infosMovie ? (
                 <InfosPurchase>
-                    <div>
+                    <div data-identifier="movie-session-infos-reserve-finished">
                         <h1>Filme e sessão</h1>
                         <p>{infosMovie.movie.title}</p>
                         <p>{infosMovie.day.date} {infosMovie.name}</p>
                     </div>
 
-                    <div>
+                    <div data-identifier="seat-infos-reserve-finished">
                         <h1>Ingressos</h1>
                         {seatsPosition.map(i => <p>Assento {i}</p>)}
                     </div>
 
-                    <div>
+                    <div data-identifier="buyer-infos-reserve-finished">
                         <h1>Comprador</h1>
-                        <p>Nome: {user.name}</p>
+                        <NameUser>Nome: {user.name}</NameUser>
                         <p>CPF: {formatCPF(user.cpf)}</p>
                     </div>
 
-                    <button onClick={() => navigate("/")}>Voltar para Home</button>
+                    <button data-identifier="back-to-home-btn" onClick={() => navigate("/")}>Voltar para Home</button>
                 </InfosPurchase>
 
             ) : <Loading>Carregando...</Loading>}

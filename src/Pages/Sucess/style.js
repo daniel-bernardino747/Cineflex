@@ -36,3 +36,7 @@ export const InfosPurchase = styled.section`
         background: var(--clickable-color);
     }
 `;
+
+export const NameUser = styled.p`
+    text-transform:capitalize;
+`;

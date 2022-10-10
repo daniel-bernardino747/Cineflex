@@ -1,5 +1,5 @@
+import { Captions, Position, SessionSeats } from './style';
 import { Container, Footer, Loading, TitlePage } from "../../GlobalStyle";
-import { Position, SessionSeats } from './style';
 import { useEffect, useState } from 'react';
 
 import Forms from "../../components/Forms";
@@ -27,6 +27,7 @@ export default function Seat({ setUserChoice }) {
 
     function handleSeat(seat) {
         if (seat.isAvailable === false) {
+            alert("Esse assento não está disponível.");
             return;
         };
 
@@ -51,6 +52,7 @@ export default function Seat({ setUserChoice }) {
                                 seat={s}
                                 handleSeat={handleSeat}
                             />)}
+                        <DetailsPositions />
                     </SessionSeats>
 
                     <Forms
@@ -66,7 +68,7 @@ export default function Seat({ setUserChoice }) {
                         <div>
                             <img src={sessionInfos.movie.posterURL} alt={sessionInfos.movie.title} />
                         </div>
-                        <section>
+                        <section data-identifier="movie-and-session-infos-preview">
                             <p>{sessionInfos.movie.title}</p>
                             <p>{sessionInfos.day.weekday} - {sessionInfos.name}</p>
                         </section>
@@ -82,6 +84,7 @@ function SingleSeat({ seat, handleSeat }) {
         <>
             {!seat.selected ? (
                 <Position
+                    data-identifier="seat"
                     key={seat.id}
                     status={seat.isAvailable}
                     onClick={() => handleSeat(seat)}>
@@ -89,6 +92,7 @@ function SingleSeat({ seat, handleSeat }) {
                 </Position>
             ) : (
                 <Position
+                    data-identifier="seat"
                     key={seat.id}
                     status="selected"
                     onClick={() => handleSeat(seat)}>
@@ -96,5 +100,24 @@ function SingleSeat({ seat, handleSeat }) {
                 </Position>
             )}
         </>
+    );
+};
+
+function DetailsPositions() {
+    return (
+        <Captions>
+            <div data-identifier="seat-selected-subtitle">
+                <Position status="selected"></Position>
+                <p>Selecionado</p>
+            </div>
+            <div data-identifier="seat-available-subtitle">
+                <Position status={true}></Position>
+                <p>Disponível</p>
+            </div>
+            <div data-identifier="seat-unavailable-subtitle">
+                <Position status={false}></Position>
+                <p>Indisponível</p>
+            </div>
+        </Captions>
     );
 };

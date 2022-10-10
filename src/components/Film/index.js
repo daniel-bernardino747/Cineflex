@@ -6,7 +6,7 @@ export default function Film(props) {
     let navigate = useNavigate();
 
     return (
-        <Movie onClick={() => navigate(`/sessoes/${id}`)}>
+        <Movie data-identifier="movie-outdoor" onClick={() => navigate(`/sessoes/${id}`)}>
             <div>
                 <img src={posterURL} alt={title} />
             </div>

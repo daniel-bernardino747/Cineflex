@@ -21,6 +21,7 @@ export default function Forms(props) {
         const idSelecteds = selecteds.map(e => e.id);
 
         if (selecteds.length === 0) {
+            alert("Você não selecionou nenhum assento.");
             return;
         };
 
@@ -53,6 +54,7 @@ export default function Forms(props) {
             <div>
                 <label htmlFor="bla">Nome do Comprador:</label>
                 <InputText
+                    data-identifier="buyer-name-input"
                     type="text"
                     id="bla"
                     name={name}
@@ -62,6 +64,7 @@ export default function Forms(props) {
 
                 <label htmlFor="ble">CPF do Comprador:</label>
                 <InputText
+                    data-identifier="buyer-cpf-input"
                     type="text"
                     id="ble"
                     name={CPF}
@@ -72,7 +75,7 @@ export default function Forms(props) {
                     minLength="11"
                     required />
             </div>
-            <Submit value="Reservar assento(s)" />
+            <Submit data-identifier="reservation-btn" value="Reservar assento(s)" />
         </Form>
     );
 };
