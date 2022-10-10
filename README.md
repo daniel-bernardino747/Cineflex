@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+<h1 align="center">Cineflex</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+![Project initial page](/public/images/home.png)
 
-In the project directory, you can run:
 
-### `npm start`
+<p align="center">
+  <img src="https://img.shields.io/badge/release%20date-october-blue?style=for-the-badge" alt="release date: october" />
+  <img src="https://img.shields.io/badge/status-completed-brightgreen?style=for-the-badge" alt="status: completed"/>
+</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+:page_facing_up: This is a movie booking project developed with **React language**. You can select one of the movies made available by the API, the session and time and the seats you want. In addition, other people can also book and, when that happens, seats are unavailable.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## :link: Access project
 
-### `npm test`
+You can access the project clicking [here](https://github.com/daniel-bernardino747/Cineflex), or downloading it [here](https://github.com/daniel-bernardino747/Cineflex/archive/refs/heads/main.zip). Alternatively, you can access each Component created through the index.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## :point_up_2: Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**1.** ***Select API Information***: You can select movie posters to see their respective available sessions and also select the session to see available seats in the selected session.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**2.** ***Select Seats***: You can't select unavailable seats from the API and will be informed of this if you try. Available seats can be selected and also deselected, as many as you like.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**3.** ***Send information to API***: If you like a movie and want to watch it, you can reserve your selected seats by entering your name and CPF and submitting it to the API.
 
-### `npm run eject`
+**4.** ***Sucess***: At the end you will be informed of all your choices, don't forget to print and enjoy your movie. :clapper:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## :wrench: techniques and technology used
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+:heavy_check_mark: `React native`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+:heavy_check_mark: `React Router`
 
-## Learn More
+:heavy_check_mark: `Styled-Components`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+:heavy_check_mark: `Axios`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+:heavy_check_mark: `Higher Order Functions`
 
-### Code Splitting
+:heavy_check_mark: `Anonymous and arrows Functions`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+:heavy_check_mark: `Componentization`
 
-### Analyzing the Bundle Size
+:heavy_check_mark: `Sort CSS rules`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+:heavy_check_mark: `Erros handling`
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<details>
+  <summary>
+    <h2>:open_file_folder: Index</h2>
+  </summary>
 
-### Advanced Configuration
+* **General:**
+  * [HTML](https://github.com/daniel-bernardino747/Cineflex/blob/main/public/index.html)  
+  * [index.js](https://github.com/daniel-bernardino747/Cineflex/blob/main/src/index.js)
+  * [GlobalStyle Components](https://github.com/daniel-bernardino747/Cineflex/blob/main/src/GlobalStyle.js)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+* **Components:**
+  * [App](https://github.com/daniel-bernardino747/Cineflex/tree/main/src/components/App)
+  * [Film](https://github.com/daniel-bernardino747/Cineflex/tree/main/src/components/Film)
+  * [Forms](https://github.com/daniel-bernardino747/Cineflex/tree/main/src/components/Forms)
+ 
+* **Pages**
+  * [ErrorPage](https://github.com/daniel-bernardino747/Cineflex/tree/main/src/Pages/ErrorPage)
+  * [Home](https://github.com/daniel-bernardino747/Cineflex/tree/main/src/Pages/Home)
+  * [Session](https://github.com/daniel-bernardino747/Cineflex/tree/main/src/Pages/Session)
+  * [Seats](https://github.com/daniel-bernardino747/Cineflex/tree/main/src/Pages/Seats)
+  * [Sucess](https://github.com/daniel-bernardino747/Cineflex/tree/main/src/Pages/Sucess)
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* **Services**
+  * [GETs Requests](https://github.com/daniel-bernardino747/Cineflex/blob/main/src/services/get.js)
+  * [POSTs Requests](https://github.com/daniel-bernardino747/Cineflex/blob/main/src/services/post.js)
