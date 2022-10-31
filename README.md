@@ -3,6 +3,7 @@
 
 ![Project initial page](/public/images/home.png)
 
+**_Selecione outro idioma:_ [Português](https://github.com/daniel-bernardino747/Cineflex/blob/main/README-PT.md)**
 
 <p align="center">
   <img src="https://img.shields.io/badge/release%20date-october-blue?style=for-the-badge" alt="release date: october" />
